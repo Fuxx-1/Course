@@ -23,7 +23,7 @@ echo                 background-color: rgba(255, 255, 255, 0);
 echo             } >> %~dp0temp.txt
 echo             body { >> %~dp0temp.txt
 echo                 background-image: url(https://fuxx-1.gitee.io/images/background.png); >> %~dp0temp.txt
-rem echo                 background-size: 100^vw 100^vw; >> %~dp0temp.txt
+echo                 background-size: 100^vw 100^vh; >> %~dp0temp.txt
 echo                 background-attachment: fixed; >> %~dp0temp.txt
 echo             } >> %~dp0temp.txt
 echo         ^</style^> >> %~dp0temp.txt
