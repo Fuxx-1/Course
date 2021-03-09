@@ -19,7 +19,7 @@ echo             } >> %~dp0temp.txt
 echo             .link { >> %~dp0temp.txt
 echo                 width: 50^vw; >> %~dp0temp.txt
 echo                 margin: auto; >> %~dp0temp.txt
-echo                 background-color: rgba(255, 255, 255, 0);
+echo                 background-color: rgba(255, 255, 255, 0); >> %~dp0temp.txt
 echo             } >> %~dp0temp.txt
 echo             body { >> %~dp0temp.txt
 echo                 background-image: url(https://fuxx-1.gitee.io/images/background.png); >> %~dp0temp.txt
