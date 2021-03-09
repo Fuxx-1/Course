@@ -10,7 +10,7 @@ echo     ^<head^> >> %~dp0temp.txt
 echo         ^<style^> >> %~dp0temp.txt
 echo             .main { >> %~dp0temp.txt
 echo                 width: 65^vw; >> %~dp0temp.txt
-echo                 height: 110^vw; >> %~dp0temp.txt
+echo                 height: 100^vh; >> %~dp0temp.txt
 echo                 margin: auto; >> %~dp0temp.txt
 echo                 background-color: rgba(255, 255, 255, 0.7); >> %~dp0temp.txt
 echo                 backdrop-filter: blur(7.5px); >> %~dp0temp.txt
