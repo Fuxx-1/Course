@@ -1,12 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>留言簿</title>
+    <style>
+        .avatar img {
+            width: 75px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <table width="750" border="1" align="center" cellspacing="0" cellpadding="0">
+        <tr>
+            <td style="text-align: center;height: 30px;">留言簿</td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
+                    <tr>
+                        <td style="text-align: right;border-right:1px solid black;width: 20%;">您的姓名：</td>
+                        <td><input type="text" name="realName" id="realName"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
+                    <tr>
+                        <td style="text-align: right;border-right:1px solid black;width: 20%;">您的邮箱：</td>
+                        <td><input type="text" name="realName" id="realName"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
+                    <tr>
+                        <td style="text-align: right;border-right:1px solid black;width: 20%;">您的网址：</td>
+                        <td><input type="text" name="realName" id="realName"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
+                    <tr>
+                        <td style="text-align: right;border-right:1px solid black;width: 20%;">其他联系方式：</td>
+                        <td><input type="text" name="realName" id="realName"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
+                    <tr>
+                        <td style="text-align: right;border-right:1px solid black;width: 20%;">留言内容：</td>
+                        <td><textarea name="Message" id="Message" cols="75" rows="8"></textarea></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
+                    <tr>
+                        <td style="text-align: right;border-right:1px solid black;width: 20%;">请选择表情：</td>
+                        <td>
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face1.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face2.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face3.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face4.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face5.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face6.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face7.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face8.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face9.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face10.gif" alt="">
+                            <br>
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face11.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face12.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face13.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face14.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face15.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face16.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face17.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face18.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face19.gif" alt="">
+                            <input type="radio" name="emoji" id="emoji">
+                            <img src="./face20.gif" alt="">
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
+                    <tr>
+                        <td style="text-align: right;border-right:1px solid black;width: 20%;">请选择头像：</td>
+                        <td class="avatar">
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic1.gif" alt="">
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic2.gif" alt="">
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic3.gif" alt="">
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic4.gif" alt="">
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic5.gif" alt="">
+
+                            <br>
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic6.gif" alt="">
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic7.gif" alt="">
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic8.gif" alt="">
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic9.gif" alt="">
+                            <input type="radio" name="avatar" id="avatar">
+                            <img src="./pic10.gif" alt="">
+
+
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
+                    <tr>
+                        <td align="center" style="height: 30px;">
+                            <input type="submit" value="提交留言">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="reset" value="重新填写">
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>
