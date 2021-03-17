@@ -10,15 +10,21 @@
         .avatar img {
             width: 75px;
         }
+        .Title {
+            background-color: aquamarine;
+        }
+        .Body {
+            background-color: gainsboro;
+        }
     </style>
 </head>
 
 <body>
     <table width="750" border="1" align="center" cellspacing="0" cellpadding="0">
         <tr>
-            <td style="text-align: center;height: 30px;">留言簿</td>
+            <td class="Title" style="text-align: center;height: 30px;">留言簿</td>
         </tr>
-        <tr>
+        <tr class="Body">
             <td>
                 <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
                     <tr>
@@ -28,7 +34,7 @@
                 </table>
             </td>
         </tr>
-        <tr>
+        <tr class="Body">
             <td>
                 <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
                     <tr>
@@ -38,17 +44,17 @@
                 </table>
             </td>
         </tr>
-        <tr>
+        <tr class="Body">
             <td>
                 <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
                     <tr>
                         <td style="text-align: right;border-right:1px solid black;width: 20%;">您的网址：</td>
-                        <td><input type="text" name="realName" id="realName"></td>
+                        <td><input type="text" name="realName" id="realName" value="http://"></td>
                     </tr>
                 </table>
             </td>
         </tr>
-        <tr>
+        <tr class="Body">
             <td>
                 <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
                     <tr>
@@ -58,17 +64,17 @@
                 </table>
             </td>
         </tr>
-        <tr>
+        <tr class="Body">
             <td>
                 <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
                     <tr>
-                        <td style="text-align: right;border-right:1px solid black;width: 20%;">留言内容：</td>
+                        <td style="text-align: right;border-right:1px solid black;width: 20%;">留言内容：<br><span style="color: red;">（200字以内）</span></td>                        
                         <td><textarea name="Message" id="Message" cols="75" rows="8"></textarea></td>
                     </tr>
                 </table>
             </td>
         </tr>
-        <tr>
+        <tr class="Body">
             <td>
                 <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
                     <tr>
@@ -121,7 +127,7 @@
                 </table>
             </td>
         </tr>
-        <tr>
+        <tr class="Body">
             <td>
                 <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
                     <tr>
@@ -156,7 +162,7 @@
                 </table>
             </td>
         </tr>
-        <tr>
+        <tr class="Body">
             <td>
                 <table style="width: 100%" border-bottom="1" align="center" cellspacing="0">
                     <tr>

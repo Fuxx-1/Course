@@ -1,20 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>调查问卷</title>
+    <style>
+        table tr {
+            display: block;
+            border-bottom: 1px dotted black;
+        }
+    </style>
+
 </head>
+
 <body>
-    
+    <table style="width: 650px;border: 1px solid black;" cellspacing="0" cellpadding="0" align="center">
+        <tr>
+            <td>■同城网在线调查</td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                    <tr>
+                        <td style="border-right: 1px dotted black;width: 35%;">你从哪里知道同城的</td>
+                        <td>
+                            <form action="">
+                                <select name="Know" id="Know">
+                                    <option value="Search">网上搜索</option>
+                                    <option value="Friend">朋友介绍</option>
+                                    <option value="Ad">广告宣传</option>
+                                    <option value="News">报刊杂志</option>
+                                    <option value="Other">其他渠道</option>
+                                </select>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                    <tr>
+                        <td style="border-right: 1px dotted black;width: 35%;">你正在使用的同城网服务</td>
+                        <td>
+                            <form action="">
+                                <input type="checkbox" name="Community" id="Community">免费社区
+                                <input type="checkbox" name="Message" id="Message">免费留言簿
+                                <input type="checkbox" name="Vote" id="Vote">免费投票
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                    <tr>
+                        <td style="border-right: 1px dotted black;width: 35%;">你希望我们提供哪些新服务</td>
+                        <td>
+                            <form action="">
+                                <input type="checkbox" name="Chat" id="Chat">聊天室
+                                <input type="checkbox" name="Blog" id="Blog">博客
+                                <input type="checkbox" name="Gaming" id="Gaming">游戏系统
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                    <tr>
+                        <td style="border-right: 1px dotted black;width: 35%;">你是同城网的会员吗</td>
+                        <td>
+                            <input type="radio" name="Yes" id="Yes">是
+                            <input type="radio" name="No" id="No">不是
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                    <tr>
+                        <td style="border-right: 1px dotted black;width: 35%;transform: translateY(0%);">你对同城网的其他意见</td>
+                        <td>
+                            <textarea name="opintion" id="opinion" cols="50" rows="10"></textarea>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr align="center" style="height: 50px;">
+            <td style="transform: translateY(50%);"><input type="submit" value="提交"></td>
+        </tr>
+        </tr>
+    </table>
 </body>
+
 </html>
-<!-- 
-■同城网在线调查 
-你从哪里知道同城的  网上搜索 朋友介绍 广告宣传 报刊杂志 其他渠道  
-你正在使用的同城网服务  免费社区  免费留言簿  免费投票 
-你希望我们提供哪些新服务  聊天室  博客  游戏系统 
-你是同城网的会员吗  是  不是  
-你对同城网的其他意见
- -->
