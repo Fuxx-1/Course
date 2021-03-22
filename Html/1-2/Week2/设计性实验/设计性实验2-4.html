@@ -7,24 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>调查问卷</title>
     <style>
-        table tr {
-            display: block;
-            border-bottom: 1px dotted black;
+        .dot {
+            border: 0.5px solid gray;
+            width: 35%;
+        }
+
+        .main {
+            border: 1px solid gray;
+        }
+
+        .Investigation {
+            background-color: rgb(255, 102, 0);
+            color: #fff;
         }
     </style>
 
 </head>
 
 <body>
-    <table style="width: 650px;border: 1px solid black;" cellspacing="0" cellpadding="0" align="center">
-        <tr>
+    <table style="width: 650px;border: 1px solid rgb(255, 102, 0);" cellspacing="0" cellpadding="0" align="center">
+        <tr class="Investigation">
             <td>■同城网在线调查</td>
         </tr>
         <tr>
             <td>
-                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                <table class="main" style="width: 100%;" border-bottom="1" cellspacing="0">
                     <tr>
-                        <td style="border-right: 1px dotted black;width: 35%;">你从哪里知道同城的</td>
+                        <td class="dot">你从哪里知道同城的</td>
                         <td>
                             <form action="">
                                 <select name="Know" id="Know">
@@ -42,9 +51,9 @@
         </tr>
         <tr>
             <td>
-                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                <table class="main" style="width: 100%;" border-bottom="1" cellspacing="0">
                     <tr>
-                        <td style="border-right: 1px dotted black;width: 35%;">你正在使用的同城网服务</td>
+                        <td class="dot">你正在使用的同城网服务</td>
                         <td>
                             <form action="">
                                 <input type="checkbox" name="Community" id="Community">免费社区
@@ -58,9 +67,9 @@
         </tr>
         <tr>
             <td>
-                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                <table class="main" style="width: 100%;" border-bottom="1" cellspacing="0">
                     <tr>
-                        <td style="border-right: 1px dotted black;width: 35%;">你希望我们提供哪些新服务</td>
+                        <td class="dot">你希望我们提供哪些新服务</td>
                         <td>
                             <form action="">
                                 <input type="checkbox" name="Chat" id="Chat">聊天室
@@ -74,12 +83,12 @@
         </tr>
         <tr>
             <td>
-                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                <table class="main" style="width: 100%;" border-bottom="1" cellspacing="0">
                     <tr>
-                        <td style="border-right: 1px dotted black;width: 35%;">你是同城网的会员吗</td>
+                        <td class="dot">你是同城网的会员吗</td>
                         <td>
-                            <input type="radio" name="Yes" id="Yes">是
-                            <input type="radio" name="No" id="No">不是
+                            <input type="radio" name="isUser" id="isUser">是
+                            <input type="radio" name="isUser" id="isUser">不是
                         </td>
                     </tr>
                 </table>
@@ -87,9 +96,10 @@
         </tr>
         <tr>
             <td>
-                <table style="width: 100%;" border-bottom="1" cellspacing="0">
+                <table class="main" style="width: 100%;" border-bottom="1" cellspacing="0">
                     <tr>
-                        <td style="border-right: 1px dotted black;width: 35%;transform: translateY(0%);">你对同城网的其他意见</td>
+                        <td class="dot" style="transform: translateY(0%);">
+                            你对同城网的其他意见</td>
                         <td>
                             <textarea name="opintion" id="opinion" cols="50" rows="10"></textarea>
                         </td>
@@ -98,7 +108,7 @@
             </td>
         </tr>
         <tr align="center" style="height: 50px;">
-            <td style="transform: translateY(50%);"><input type="submit" value="提交"></td>
+            <td style="transform: translateY(8%);"><input type="submit" value="提交"></td>
         </tr>
         </tr>
     </table>
