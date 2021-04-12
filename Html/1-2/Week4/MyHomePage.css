@@ -1,15 +1,21 @@
 * {
     font-family: 楷体;
-    /* border: 1px solid black; */
+    border: 0.1px solid rgba(255, 255, 255, 0);
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-image: url(http://desk-fd.zol-img.com.cn/t_s1366x768c5/g5/M00/0E/08/ChMkJl3g4u-IXLYLAAOQBJKADiEAAvffQOpyiMAA5Ac374.jpg?downfile=1612690250741.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: 70% 50%;
 }
 
 .container {
-    width: 1200px;
-    border: 1px solid black;
+    width: 100%;
+    /* border: 1px solid black; */
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(15px);
@@ -17,18 +23,28 @@ body {
 
 .header {
     width: 100%;
+    position: fixed;
 }
 
 .control {
     width: 100%;
     float: right;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
 }
 
 .controler {
     width: 20%;
     float: right;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.controler a:link {
+    color: yellow;
+}
+
+.controler a:visited {
+    color: yellow;
 }
 
 .controler tr td {
@@ -40,7 +56,7 @@ a:link {
     color: rgb(127, 169, 240);
 }
 
-a:visited {
+:visited {
     color: rgb(127, 169, 240);
 }
 
@@ -58,8 +74,8 @@ a:visited {
 }
 
 .avator {
-    width: 110px;
-    height: 110px;
+    width: 5%;
+    height: 5%;
     border: 8px solid rgba(255, 255, 255, 0);
     float: left;
 }
@@ -68,14 +84,32 @@ a:visited {
     max-width: 100%;
     border-radius: 50%;
     border-radius: 2px solid rgba(134, 134, 134, 0.5);
+    transition: all 1s;
+}
+
+:hover {
+    transform: rotate(360deg);
 }
 
 .Introduction {
-    width: 89%;
-    float: right;
+    /* width: 75%; */
+    float: left;
 }
 
 .Info {
-    width: 95%;
+    width: 94%;
     float: right;
+}
+
+.statement {
+    text-align: center;
+    color: brown;
+}
+
+.statement a:link {
+    color: azure;
+}
+
+.statement a:visited {
+    color: azure;
 }
