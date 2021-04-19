@@ -1,23 +1,12 @@
 #include <stdio.h>
-#include <math.h>
-int com(int *a, int *b)
+#include <string.h>
+int main(void)
 {
-    return (*(int *)a - *(int *)b);
-}
-int main(int argc, char const *argv[])
-{
-    int n, i;
-    scanf("%d", &n);
-    int a[n + 1];
-    for (i = 0; i < n; i++)
-    {
-        scanf("%d", &a[i]);
-    }
-    scanf("%d", &a[i]);
-    qsort(a, n + 1, sizeof(int), com);
-    for (i = 0; i <= n; i++)
-    {
-        printf("%d ", a[i]);
-    }
+    char a[81], b[41];
+    gets(a);
+    gets(b);
+    int n = strlen(a);
+    strcpy(a + n, b);
+    puts(a);
     return 0;
 }
