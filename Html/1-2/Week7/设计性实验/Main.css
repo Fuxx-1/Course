@@ -1,0 +1,89 @@
+* {
+    text-align: center;
+}
+
+.Container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.Head {
+    width: 100%;
+    background-color: rgb(160, 207, 113);
+    height: 100px;
+    /* line-height: 100px; */
+    margin: 0.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Navigation {
+    width: 100%;
+    background-color: rgb(113, 160, 66);
+    height: 40px;
+    margin: 0.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Left_List {
+    width: 19.4%;
+    height: 400px;
+    float: left;
+    background-color: rgb(207, 254, 160);
+    margin: 0.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Main_List {
+    width: 59.5%;
+    height: 400px;
+    float: left;
+    background-color: rgb(254, 254, 176);
+    margin: 0.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Right_List {
+    width: 19.5%;
+    height: 400px;
+    float: left;
+    background-color: rgb(207, 254, 160);
+    margin: 0.25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Content {
+    width: 100%;
+    margin: 0;
+}
+
+.My_Info {
+    width: 100%;
+    background-color: rgb(65, 206, 112);
+    height: 40px;
+    margin: 0.25vw;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Bottom {
+    width: 100%;
+    background-color: rgb(159, 206, 112);
+    height: 100px;
+    margin: 0.25vw;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教材选购单</title>
+    <style>
+        body {
+            background: #fff;
+            line-height: 15px;
+        }
+
+        #container {
+            width: 80%;
+        }
+
+        #Header {
+            width: 800px;
+            padding-top: 40px;
+            margin: 0 auto;
+            height: 60px;
+        }
+
+        #PageBody {
+            width: 800px;
+        }
+
+        .ContentBody {
+            border: 2px solid #E7E7E7;
+            width: 450px;
+            height: 220px;
+            padding: 8px;
+            margin: 0 auto;
+        }
+
+        .textList {
+            background-color: #f7f7f7;
+            border: 1px dotted #808080;
+            width: 400px;
+            height: 100px;
+            padding-top: 8px;
+        }
+
+        .div_height {
+            margin-left: 8px;
+            margin-top: 8px;
+            padding-bottom: 8px;
+        }
+
+        .send {
+            background-color: #fff;
+            width: 400px;
+            height: 60px;
+            margin-top: 8px;
+            padding-top: 8px;
+            padding-bottom: 15px;
+        }
+
+        .title {
+            color: #a00;
+            padding: 15px;
+            width: 400px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Container">
+        <div class="Header">
+            <h2 align="center">教材选购单</h2>
+        </div>
+        <div class="PageBody">
+            <div class="ContentBody">
+                <div class="title">你想订哪几本教材？</div>
+                <form>
+                    <div class="textList">
+                        <div class="div_height" align="center">
+                            <input type="checkbox" name="textbook" id="textbook">JSP实用教程（第二版）
+                        </div>
+                        <div class="div_height" align="center">
+                            <input type="checkbox" name="textbook" id="textbook">SQL Server开发与维护
+                        </div>
+                    </div>
+                </form>
+                <div class="send">
+                    <div class="div_height">
+                        <input type="button" value="发送教材选购单">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
