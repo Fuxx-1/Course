@@ -31,7 +31,6 @@
 .Left_List {
     width: 19.4%;
     height: 400px;
-    float: left;
     background-color: rgb(207, 254, 160);
     margin: 0.25vw;
     display: flex;
@@ -42,7 +41,6 @@
 .Main_List {
     width: 59.5%;
     height: 400px;
-    float: left;
     background-color: rgb(254, 254, 176);
     margin: 0.25vw;
     display: flex;
@@ -53,7 +51,6 @@
 .Right_List {
     width: 19.5%;
     height: 400px;
-    float: left;
     background-color: rgb(207, 254, 160);
     margin: 0.25vw;
     display: flex;
@@ -64,6 +61,7 @@
 .Content {
     width: 100%;
     margin: 0;
+    display: flex;
 }
 
 .My_Info {
@@ -71,7 +69,6 @@
     background-color: rgb(65, 206, 112);
     height: 40px;
     margin: 0.25vw;
-    float: left;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,7 +79,6 @@
     background-color: rgb(159, 206, 112);
     height: 100px;
     margin: 0.25vw;
-    float: left;
     display: flex;
     justify-content: center;
     align-items: center;
