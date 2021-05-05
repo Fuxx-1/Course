@@ -1,0 +1,32 @@
+.container {
+    width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+}
+
+#nav {
+    list-style: none;
+    font-style: 22px;
+    line-height: 40px;
+}
+
+.home {
+    border-top: 4px solid #7bc110;
+    background-color: #be6;
+}
+
+.activity {
+    border-top: 4px solid #f90;
+    background-color: #fc3;
+}
+
+.personal {
+    border-top: 4px solid #f6f;
+    background-color: #fcf;
+}
+
+.change {
+    text-align: center;
+}
