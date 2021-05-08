@@ -9,6 +9,13 @@ $(function () {
         $(".element div:last-child").remove();
         i--;
     });
+    $(".DelSel").click(function () {
+        $(".element div").each(function () {
+            if ($(this).find("input").first().prop('checked')) {
+                $(this).remove();
+            }
+        });
+    });
     isChecked();
     divChecked();
 });
