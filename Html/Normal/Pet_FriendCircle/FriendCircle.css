@@ -1,0 +1,67 @@
+* {
+    /* border: 1px solid black; */
+}
+
+.Background {
+    width: 100%;
+    height: 200px;
+    background-color: aliceblue;
+}
+
+.Avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.UserName {
+    color: royalblue;
+    font-family: KaiTi;
+    font-size: 17px;
+}
+
+.UserContent {
+    font-family: KaiTi;
+    font-size: 15px;
+}
+
+.other {
+    clear: both;
+    background-color: #eee;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.Info {
+    color: #999;
+    font-size: 10px;
+}
+
+.info1 {
+    float: left;
+    width: 50px;
+}
+
+.info2 {
+    float: left;
+    width: 80%;
+}
+
+.info {
+    clear: both;
+}
+
+.User {
+    width: 90px;
+    height: 45px;
+    position: absolute;
+    right: 30px;
+    top: 175px;
+}
+
+.UserAvatar {
+    border-radius: 8px;
+    width: 45px;
+    height: 45px;
+}

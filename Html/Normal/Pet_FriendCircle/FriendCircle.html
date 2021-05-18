@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./FriendCircle.css">
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.1.7/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="./FriendCircle.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="Background">
+            <button class="btn btn-lg btn-default btn-link pull-left">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </button>
+            <button class="pull-right btn btn-lg btn-default btn-link">
+                <span class="glyphicon glyphicon-camera"></span>
+            </button>
+        </div>
+        <div class="User">
+            {{ username }}
+            <img :src="Avatar" alt="" class="UserAvatar pull-right">
+        </div>
+        <br><br>
+        <div class="Content">
+            <div class="info" v-for="item in Info">
+                <br>
+                <hr>
+                <div class="info1">
+                    <img :src="item.AvatarImgSrc" alt="" class="Avatar">
+                </div>
+                <div class="info2">
+                    <span class="UserName">{{ item.username }}</span><br>
+                    <span class="UserContent">{{ item.UserContent
+                        }}</span>
+                    <div class="Info">
+                        <span class="time text-left">{{ item.time }}以前</span>
+                        <button class="pull-right btn btn-xs btn-default btn-link">
+                            ...
+                        </button>
+                    </div>
+                    <div class="other">
+                        <div class="like">
+                            <span class="glyphicon glyphicon-heart-empty"></span> {{ item.likes }}
+                        </div>
+                        <div class="commit">
+                            <span class="commitformat" v-for="value in item.commit">{{ value.username }}{{
+                                value.commitcontent }}<br></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
