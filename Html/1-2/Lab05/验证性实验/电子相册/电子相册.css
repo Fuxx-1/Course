@@ -1,0 +1,31 @@
+.contain {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#album {
+    list-style: none;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+#album li {
+    float: left;
+    width: 68px;
+    margin: 10px;
+}
+
+img {
+    border: 0;
+}
+
+a:link, a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #F00;
+    text-decoration: underline;
+}

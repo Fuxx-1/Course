@@ -1,4 +1,4 @@
-.container {
+.contain {
     width: 650px;
     margin: 0 auto;
     text-align: center;
@@ -8,8 +8,12 @@
 
 #nav {
     list-style: none;
-    font-style: 22px;
+    font-size: 22px;
     line-height: 40px;
+}
+
+#nav {
+    margin-top: 5px;
 }
 
 .home {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>酒店预订</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.1.7/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <link rel="stylesheet" href="./酒店预订.css">
+    <script src="./酒店预订.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <div class="tip">
+            <p>
+                现在&nbsp;<a href="">登录</a>&nbsp;即可预订可享酒店会员专属优惠，并可直接使用常用预订信息
+            </p>
+        </div>
+        <form action="" method="post" id="room">
+            <div class="order">
+                <input type="date" name="inDate" id="inDate">
+                <span>至</span>
+                <input type="date" name="outDate" id="outDate">
+            </div>
+            <div class="order">
+                <label>房间数量</label>
+                <input type="number" name="1" id="1">
+                <span>房费</span>
+                ￥<strong class="fee">{{ cost }}</strong>
+            </div>
+            <div class="order">
+                <label>最晚抵店</label>
+                <select name="select" id="select" autocomplete="off" >
+                    <option :value="item" v-for="item in value">{{ item }}</option>
+                </select>
+                <div class="submit">提交订单</div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
