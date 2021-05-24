@@ -1,0 +1,35 @@
+* {
+    /* border: 1px solid black; */
+}
+
+.container {
+    /* color: blueviolet; */
+    margin: auto;
+}
+
+.contains {
+    display: flex;
+    align-items: center;    
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 700px;
+    /* height: 350px; */
+    margin: auto;
+}
+
+.img {
+    width: 400px;
+}
+
+img {
+    border-radius: 10px 0px 0px 10px;
+    width: 400px;
+}
+
+.login {
+    width: 280px;
+}
+
+table tr {
+    height: 50px;
+}
