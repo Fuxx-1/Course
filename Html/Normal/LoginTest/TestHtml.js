@@ -2,7 +2,7 @@ $(function () {
     $("img").attr("src", "https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3228549874,2173006364&fm=26&gp=0.jpg");
 
     function flush() {
-        $.post("http://149.28.252.200:8080/JavaWebDemo/hello-servlet", "",
+        $.post("https://149.28.252.200:8080/JavaWebDemo/hello-servlet", "",
             function (data, textStatus, jqXHR) {
                 $("#successconnectinfo").text(data.info);
                 $("#time").text("现在时间：" + data.time);
@@ -13,7 +13,7 @@ $(function () {
     flush();
 
     $(".btn01").click(function () {
-        $.post("http://149.28.252.200:8080/JavaWebDemo/login", {
+        $.post("https://149.28.252.200:8080/JavaWebDemo/login", {
                 signup: true,
                 username: $("#username1").val(),
                 passwd: $("#passwd1").val()
@@ -28,7 +28,7 @@ $(function () {
         return false;
     });
     $(".btn02").click(function () {
-        $.post("http://149.28.252.200:8080/JavaWebDemo/login", {
+        $.post("https://149.28.252.200:8080/JavaWebDemo/login", {
                 login: true,
                 username: $("#username2").val(),
                 passwd: $("#passwd2").val()
