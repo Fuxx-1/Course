@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>求长方形总边长及面积</title>
+    <script>
+        function Calculate() {
+            var height = prompt("请输入一个长方形的长（厘米）");
+            var width = prompt("请输入一个长方形的宽（厘米）");
+            var Length = Number(height) + Number(width);
+            alert("长方形的总边长是：" + Length * 2 + "\n长方形的总面积是：" + height * width + "");
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="Calculate()">长方形总边长及面积</button>
+</body>
+
+</html>
