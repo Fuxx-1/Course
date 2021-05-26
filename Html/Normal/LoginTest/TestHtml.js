@@ -2,7 +2,7 @@ $(function () {
     $("img").attr("src", "https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3228549874,2173006364&fm=26&gp=0.jpg");
 
     function flush() {
-        $.post("https://api.newimg.ltd//JavaWebDemo/hello-servlet", "",
+        $.post("https://api.newimg.ltd//JavaWebDemo/Time", "",
             function (data, textStatus, jqXHR) {
                 $("#successconnectinfo").text(data.info);
                 $("#time").text("现在时间：" + data.time);

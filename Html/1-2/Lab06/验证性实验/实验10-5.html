@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的例子</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+    <script>
+        function changecolor(color) {
+            var table = document.getElementById("colorTable");
+            table.bgColor = color;
+            console.log('ok');
+        }
+    </script>
+
+</head>
+
+<body>
+    选取颜色：<br><br>
+    <table border=1>
+        <tr height="24">
+            <td bgColor="red" width="24" onclick="changecolor('red')"></td>
+            <td bgColor="orange" width="24" onclick="changecolor('orange')"></td>
+            <td bgColor="yellow" width="24" onclick="changecolor('yellow')"></td>
+            <td bgColor="green" width="24" onclick="changecolor('green')"></td>
+            <td bgColor="black" width="24" onclick="changecolor('black')"></td>
+            <td bgColor="blue" width="24" onclick="changecolor('blue')"></td>
+            <td bgColor="purple" width="24" onclick="changecolor('purple')"></td>
+        </tr>
+    </table>
+    <br>
+    <table id="colorTable" border=1 height="168" width="168">
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>

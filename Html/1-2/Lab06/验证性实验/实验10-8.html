@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关系表达式</title>
+    <script>
+        function showMax() {
+            var v1 = parseFloat(document.getElementById('v1').value);
+            var v2 = parseFloat(document.getElementById('v2').value);
+            if (v1 > v2) {
+                document.getElementById('max').value = v1;
+            } else {
+                document.getElementById('max').value = v2;
+            }
+            console.log(v1);
+        }
+    </script>
+</head>
+
+<body>
+    输入第一个数值：<input type="text" name="v1" id="v1"><br>
+    输入第二个数值：<input type="text" name="v2" id="v2"><br>
+    <input type="button" value="计算最大值" onclick="showMax()"><br>
+    最大值是：<input type="text" name="max" id="max" readonly>
+</body>
+
+</html>
