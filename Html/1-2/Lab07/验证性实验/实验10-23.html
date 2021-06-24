@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function mouseOver() {
+            document.mouse.src = "../mouse_over.jpg";
+        }
+
+        function mouseOut() {
+            document.mouse.src = "../mouse_out.jpg";
+        }
+
+        function mousePressed() {
+            if (event.button == 2) {
+                alert("您单击了鼠标右键！");
+            } else {
+                alert("您单击了鼠标左键！");
+            }
+        }
+    </script>
     <title>Document</title>
 </head>
-<body>
-    
+
+<body onmousedown="mousePressed()" style="text-align: center;">
+    <img style="border: 0px;" src="../mouse_out.jpg" name="mouse" alt="鼠标移入移出图片" onmouseover="mouseOver()" onmouseout="mouseOut()">
 </body>
+
 </html>

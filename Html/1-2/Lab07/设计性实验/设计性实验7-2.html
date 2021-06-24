@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        function Move() {
+            var NameList = document.getElementById("BeSelected");
+            console.log(NameList);
+            for (let index = 0; index < NameList.length; index++) {
+                if (NameList[index].selected == true) {
+                    console.log(index);
+                    document.getElementById("Selected").appendChild(NameList[index]);
+                    Move();
+                }
+            }
+        }
+    </script>
+    <style>
+        .Main {
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            width: 300px;
+            margin: auto;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="Main">
+        <div class="BeSelected">
+            待选名单
+            <select id='BeSelected' style="width:120px;height:300px;" multiple="multiple">
+                　　　　<option>选项1</option>
+                　　　　<option>选项2</option>
+                　　　　<option>选项3</option>
+                　　　　<option>选项4</option>
+                　　　　<option>选项5</option>
+                　　　　<option>选项6</option>
+                　　　　<option>选项7</option>
+                　　</select>
+        </div>
+        &nbsp;&nbsp;<button onclick="Move()">>></button>&nbsp;&nbsp;
+        <div class="Selected">
+            参加名单
+            <select id='Selected' style="width:120px;height:300px;" multiple="multiple">
+                　　　　<option>选项0</option>
+                　　</select>
+        </div>
+    </div>
 </body>
+
 </html>

@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script>
+        function login() {
+            var userName = document.getElementById("userName").value;
+            var pwd = document.getElementById("pwd").value;
+            var matchResult = true;
+            if (userName == "" || pwd == "") {
+                alert("请确认用户名和登录密码输入正确！");
+                matchResult = false;
+            }
+            return matchResult;
+        }
+    </script>
+    <style>
+        .input {
+            width: 130px;
+        }
+    </style>
+    <title>Form事件的例子</title>
 </head>
+
 <body>
-    
+    <form name="loginForm" action="10-20.html" onsubmit="return login()" method="post">
+        <table style="background-color: #87ceeb;width: 200px;border-spacing: 0;border-collapse: collapse;margin: auto;">
+            <tr>
+                <td class="table-title" colspan="2" style="text-align: center;">用户登录</td>
+            </tr>
+            <tr>
+                <td style="width: 50px;height: 28px;text-align: right;" ;>用户名</td>
+                <td><input type="text" name="userName" id="userName" class="input"></td>
+            </tr>
+            <tr>
+                <td style="width: 50px; height: 28px; text-align: right;">密&nbsp;&nbsp;&nbsp;码</td>
+                <td><input type="password" name="pwd" id="pwd" class="input"></td>
+            </tr>
+            <tr>
+                <td style="width: 50px;height: 28px;text-align: right;"></td>
+                <td>
+                    <input type="submit" value="登录">
+                    <input type="button" value="取消" onclick="reset()">
+                </td>
+            </tr>
+        </table>
+    </form>
 </body>
+
 </html>

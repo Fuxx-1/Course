@@ -16,34 +16,6 @@
             width: 100px;
         }
     </style>
-    <script>
-        window.onload = function () {
-            window.resizeTo(500, 300);
-            var top = ((window.screen.availHeight - 300) / 2);
-            var left = ((window.screen.availWidth - 500) / 2);
-            window.moveTo(left, top)
-        }
-    </script>
-    <script>
-        window.onload = function () {
-            alert("本脚本由 Fuxx-1 编写\n博客：fuxx-1.github.io\n该脚本仅供学习参考，不作任何商业用途，若侵权请联系作者删除");
-            if (confirm("是否需要刷评论？")) {
-                var message;
-                message = prompt("输入你想说的话");
-                alert(message);
-                function division() {
-                    if (message.length == 0 || message == null) {
-                        return;
-                    }
-                    for (var i = 0; i < 50; i++) {
-                        document.getElementById("toplevelTextCommentTitle").value = message;
-                        document.getElementsByClassName("btn01")[0].click();
-                    }
-                }
-                division();
-            }
-        }
-    </script>
 </head>
 
 <body>
