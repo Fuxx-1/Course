@@ -1,76 +1,59 @@
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "Default.h"
 
-typedef struct Student {
-    char id[21]; //å­¦å·(ç¼–å·ä¸º1)
-    char name[41]; //å§“å(ç¼–å·ä¸º2)
-    bool isMale; //æ€§åˆ«ï¼Œtrueä¸ºç”·ï¼Œfalseä¸ºå¥³(ç¼–å·ä¸º3)
-    int age; //å¹´é¾„(ç¼–å·ä¸º4)
-    int Chinese; //è¯­æ–‡æˆç»©(ç¼–å·ä¸º5)
-    int Math; //æ•°å­¦æˆç»©(ç¼–å·ä¸º6)
-    int C; //Cè¯­è¨€æˆç»©(ç¼–å·ä¸º7)
-    int Sum; //æ€»åˆ†(ç¼–å·ä¸º8)
-    struct Student* prev;
-    struct Student* next;
-} Stu;
-
-//å®šä¹‰å…¨å±€ä¸´æ—¶å˜é‡
-Stu tempNode = { "", "", 0, 0, 0, 0, 0, 0 };
-
-void AddNewInfo(Stu* FatherNode); //ä»å±å¹•è·å–æ•°æ®
-int CompareTo(Stu* First, Stu* Second, int flag); //èŠ‚ç‚¹æ¯”è¾ƒå‡½æ•°
-Stu* SearchNode(); //æŸ¥è¯¢èŠ‚ç‚¹
-Stu* InsertNode(Stu* FatherNode, Stu* NewNode); //æ’å…¥èŠ‚ç‚¹
-Stu* CreateNode(); //åˆ›å»ºèŠ‚ç‚¹
-Stu* ReadInfoFromFile(); //ä»æ–‡ä»¶ä¸­è¯»å–ä¿¡æ¯
-int Menu(); //æ‰“å°èœå•å¹¶æˆ–å–å‡½æ•°è°ƒç”¨ä¿¡æ¯
-void WriteFile(Stu* FatherNode); //å†™æ–‡ä»¶
+int Menu(); //´òÓ¡²Ëµ¥²¢»òÈ¡º¯Êıµ÷ÓÃĞÅÏ¢
+int SearchNode(Stu* FatherNode); //²éÑ¯½Úµã
+void DeleteNode(int i); //¶Ô½á¹û½øĞĞÅĞ¶Ï²¢É¾³ı
+void ChangeInfo(int i); //¶Ô½á¹û½øĞĞĞŞ¸Ä
+Stu* SortInfo(Stu* FatherNode); //ÅÅĞò
+int CompareTo(Stu* Node1, Stu* Node2, int flag1, int flag2); //½Úµã±È½Ï
+Stu* InsertNode(Stu* FatherNode, Stu* NewNode); //²åÈë½Úµã
+Stu* CreateNode(); //´´½¨½Úµã
+Stu* ReadInfoFromFile(); //´ÓÎÄ¼şÖĞ¶ÁÈ¡ĞÅÏ¢
+void AddNewInfo(Stu* FatherNode); //´ÓÆÁÄ»»ñÈ¡Êı¾İ
+void WriteFile(Stu* FatherNode); //Ğ´ÎÄ¼ş
+void Print(Stu* FatherNode); //Êä³öÊı¾İ
+void PrintResult(int i); //´òÓ¡½á¹û
 
 int main(int argc, char const* argv[])
 {
-    //è°ƒæ•´ç¼–ç æ ¼å¼å¹¶æ¸…å±ï¼Œä»…windows
-    system("chcp 65001");
-    system("cls");
-    //ä»æ–‡ä»¶ä¸­è¯»å–ä¿¡æ¯
+    //´ÓÎÄ¼şÖĞ¶ÁÈ¡ĞÅÏ¢
     Stu* FatherNode = ReadInfoFromFile();
-    //è¯¥å˜é‡ç”¨äºå‡½æ•°è°ƒç”¨ä¿¡æ¯
+    //¸Ã±äÁ¿ÓÃÓÚº¯Êıµ÷ÓÃĞÅÏ¢
     int CallInformation = 0;
     while (CallInformation = Menu()) {
-        system("cls"); //æ¸…å±ï¼Œä»…windows
+        system("cls"); //ÇåÆÁ£¬½öwindows
         switch (CallInformation) {
         case 0:
-            printf("å…³é—­ç³»ç»Ÿ\n");
+            printf("¹Ø±ÕÏµÍ³ÖĞ\n");
             sleep(1);
             break;
         case 1:
-            //å¢åŠ å­¦ç”Ÿä¿¡æ¯
-            AddNewInfo();
+            //Ôö¼ÓÑ§ÉúĞÅÏ¢
+            AddNewInfo(FatherNode);
             break;
         case 2:
-            //æŸ¥è¯¢å­¦ç”Ÿä¿¡æ¯ï¼ˆå…è®¸ä½¿ç”¨å§“åæˆ–å­¦å·æŸ¥è¯¢ï¼‰
-            /* code */
+            //²éÑ¯Ñ§ÉúĞÅÏ¢£¨ÔÊĞíÊ¹ÓÃĞÕÃû»òÑ§ºÅ²éÑ¯£©
+            PrintResult(SearchNode(FatherNode));
             break;
         case 3:
-            //ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯ï¼ˆé™¤å§“åå’Œå­¦å·ï¼‰
-            /* code */
+            //ĞŞ¸ÄÑ§ÉúĞÅÏ¢£¨³ıĞÕÃûºÍÑ§ºÅ£©
+            ChangeInfo(SearchNode(FatherNode));
             break;
         case 4:
-            //åˆ é™¤å­¦ç”Ÿä¿¡æ¯
-            /* code */
+            //É¾³ıÑ§ÉúĞÅÏ¢
+            DeleteNode(SearchNode(FatherNode));
             break;
         case 5:
-            //æ’åºè¾“å‡ºå­¦ç”Ÿä¿¡æ¯
-            /* code */
+            //ÅÅĞòÊä³öÑ§ÉúĞÅÏ¢
+            FatherNode = SortInfo(FatherNode);
             break;
         case 6:
-            //è¾“å‡ºå­¦ç”Ÿä¿¡æ¯
-            /* code */
+            //Êä³öÑ§ÉúĞÅÏ¢
+            Print(FatherNode);
             break;
         default:
             system("color F4");
-            printf("\n\n\tè¯·è¾“å…¥æ­£ç¡®çš„åºå·\n");
+            printf("\n\n\tÇëÊäÈëÕıÈ·µÄĞòºÅ\n");
             sleep(2);
             system("color 0E");
             break;
@@ -80,88 +63,303 @@ int main(int argc, char const* argv[])
     return 0;
 }
 
-Stu* ReadInfoFromFile() //ä»æ–‡ä»¶ä¸­è¯»å–ä¿¡æ¯
-{
-    //å®šä¹‰
-    char ABS[1001];
-    FILE* File = NULL;
-    //æ‰“å¼€æ–‡ä»¶
-    getcwd(ABS, 1000);
-    File = fopen(strcat(ABS, "\\Information"), "a+");
-    fscanf(File, "%s%s%d%d%d%d%d%d", &tempNode.id, &tempNode.name, &tempNode.isMale, &tempNode.age, &tempNode.Chinese, &tempNode.Math, &tempNode.C, &tempNode.Sum);
-    //å®šä¹‰çˆ¶èŠ‚ç‚¹
-    Stu* FatherNode = CreateNode();
-    while (fscanf(File, "%s%s%d%d%d%d%d%d", &tempNode.id, &tempNode.name, &tempNode.isMale, &tempNode.age, &tempNode.Chinese, &tempNode.Math, &tempNode.C, &tempNode.Sum) != EOF) {
-        InsertNode(FatherNode, CreateNode());
-    }
-    return FatherNode;
-}
-
-int Menu() //æ‰“å°èœå•å¹¶æˆ–å–å‡½æ•°è°ƒç”¨ä¿¡æ¯
+int Menu() //´òÓ¡²Ëµ¥²¢»òÈ¡º¯Êıµ÷ÓÃĞÅÏ¢
 {
     int temp = 8;
     system("cls");
-    system("color 0E");
-    printf("\næ¬¢è¿æ¥åˆ°å­¦ç”Ÿæˆç»©ç®¡ç†ç³»ç»Ÿï¼\n\n");
+    system("color 0A");
+    printf("\n»¶Ó­À´µ½Ñ§Éú³É¼¨¹ÜÀíÏµÍ³£¡\n\n");
     printf("===============================================\n");
-    printf("  0ã€é€€å‡º                                      \n");
-    printf("  1ã€å¢åŠ å­¦ç”Ÿä¿¡æ¯                               \n");
-    printf("  2ã€æŸ¥è¯¢å­¦ç”Ÿä¿¡æ¯ï¼ˆå…è®¸ä½¿ç”¨å§“åæˆ–å­¦å·æŸ¥è¯¢ï¼‰        \n");
-    printf("  3ã€ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯ï¼ˆé™¤å§“åå’Œå­¦å·ï¼‰                \n");
-    printf("  4ã€åˆ é™¤å­¦ç”Ÿä¿¡æ¯                               \n");
-    printf("  5ã€æ’åºè¾“å‡ºå­¦ç”Ÿä¿¡æ¯                           \n");
-    printf("  6ã€è¾“å‡ºå­¦ç”Ÿä¿¡æ¯                              \n");
-    printf("  è¯·è¾“å…¥éœ€è¦åŠŸèƒ½çš„ç¼–å·ï¼Œç›´æ¥å…³é—­ç³»ç»Ÿå¯èƒ½æŸåæ•°æ®  \n");
+    printf("  0¡¢ÍË³ö                                      \n");
+    printf("  1¡¢Ôö¼ÓÑ§ÉúĞÅÏ¢                               \n");
+    printf("  2¡¢²éÑ¯Ñ§ÉúĞÅÏ¢£¨ÔÊĞíÊ¹ÓÃĞÕÃû»òÑ§ºÅ²éÑ¯£©        \n");
+    printf("  3¡¢ĞŞ¸ÄÑ§ÉúĞÅÏ¢£¨³ıĞÕÃûºÍÑ§ºÅ£©                \n");
+    printf("  4¡¢É¾³ıÑ§ÉúĞÅÏ¢£¨ÏÈ²éÑ¯£©                      \n");
+    printf("  5¡¢ÅÅĞòÊä³öÑ§ÉúĞÅÏ¢                           \n");
+    printf("  6¡¢Êä³öÑ§ÉúĞÅÏ¢                              \n");
+    printf("  ÇëÊäÈëĞèÒª¹¦ÄÜµÄ±àºÅ£¬Ö±½Ó¹Ø±ÕÏµÍ³¿ÉÄÜËğ»µÊı¾İ  \n");
     printf("===============================================\n");
     // setbuf(stdin, NULL);
     fflush(stdin);
     scanf("%d", &temp);
+    system("color 0E");
     return temp;
 }
 
-int CompareTo(Stu* First, Stu* Second, int flag) //èŠ‚ç‚¹æ¯”è¾ƒå‡½æ•°
+int SearchNode(Stu* FatherNode) //²éÑ¯½Úµã
 {
-}
-
-Stu* SearchNode() //æŸ¥è¯¢èŠ‚ç‚¹
-{
-}
-
-void AddNewInfo(Stu* FatherNode) //ä»å±å¹•è·å–æ•°æ®
-{
-    printf("è¯·è¾“å…¥å§“åï¼ˆ20å­—å†…ï¼‰ï¼š\n");
-    scanf("%s", &tempNode.name);
-    printf("è¯·è¾“å…¥å­¦å·ï¼ˆ20ä¸ªæ•°å­—å†…ï¼‰ï¼š\n");
-    scanf("%s", &tempNode.id);
-    printf("è¯·è¾“å…¥æ€§åˆ«ï¼ˆç”·ä¸º1ï¼Œå¥³ä¸º0ï¼‰ï¼š\n");
-    scanf("%s", &tempNode.isMale);
-    printf("è¯·è¾“å…¥å¹´é¾„ï¼ˆ20å­—å†…ï¼‰ï¼š\n");
-    scanf("%s", &tempNode.age);
-    printf("è¯·è¾“å…¥è¯­æ–‡æˆç»©ï¼ˆ20å­—å†…ï¼‰ï¼š\n");
-    scanf("%s", &tempNode.Chinese);
-    printf("è¯·è¾“å…¥æ•°å­¦æˆç»©ï¼ˆ20å­—å†…ï¼‰ï¼š\n");
-    scanf("%s", &tempNode.Math);
-    printf("è¯·è¾“å…¥Cè¯­è¨€æˆç»©ï¼ˆ20å­—å†…ï¼‰ï¼š\n");
-    scanf("%s", &tempNode.C);
-    if (tempNode.age >= 0 && tempNode.C <= 100 && tempNode.C >= 100 && tempNode.Chinese <= 100 && tempNode.Chinese >= 100 && tempNode.Math <= 100 && tempNode.Math >= 100 && (tempNode.isMale == 0 || tempNode.isMale == 1) && strlen(tempNode.name) > 0 && strlen(tempNode.id) > 0) {
-        printf("è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥");
-    } else {
-        InsertNode(FatherNode, CreateNode());
-    }
-}
-
-Stu* InsertNode(Stu* FatherNode, Stu* NewNode) //æ’å…¥èŠ‚ç‚¹
-{
+    system("cls");
     Stu* ActionNode = FatherNode;
-    while (ActionNode->next != NULL) {
-        ActionNode = ActionNode->next;
+    int temp, i = 0;
+    //´òÓ¡²Ëµ¥²¢»ñÈ¡ÓÃ»§ÊäÈë
+    printf("===============================================\n");
+    printf("  1¡¢Ê¹ÓÃĞÕÃû²éÑ¯                               \n");
+    printf("  2¡¢Ê¹ÓÃÑ§ºÅ²éÑ¯                               \n");
+    printf("  ÇëÊäÈëĞèÒª¹¦ÄÜµÄ±àºÅ£¬Ö±½Ó¹Ø±ÕÏµÍ³¿ÉÄÜËğ»µÊı¾İ   \n");
+    printf("===============================================\n");
+    scanf("%d", &temp);
+    char SearchVal[41];
+    //ÅĞ¶Ï
+    if (temp == 1) {
+        printf("ÊäÈëÒª²éÑ¯µÄÑ§ÉúĞÕÃû£º");
+        scanf("%s", SearchVal);
+        while (1) {
+            if (!strcmp(ActionNode->name, SearchVal)) {
+                ResultTemp[i++] = ActionNode;
+            }
+            if (ActionNode->next != NULL) {
+                ActionNode = ActionNode->next;
+            } else {
+                break;
+            }
+        }
+    } else if (temp == 2) {
+        printf("ÊäÈëÒª²éÑ¯µÄÑ§ÉúÑ§ºÅ£º");
+        scanf("%s", SearchVal);
+        while (1) {
+            if (!strcmp(ActionNode->id, SearchVal)) {
+                ResultTemp[i++] = ActionNode;
+            }
+            if (ActionNode->next != NULL) {
+                ActionNode = ActionNode->next;
+            } else {
+                break;
+            }
+        }
     }
-    ActionNode->next = NewNode;
-    NewNode->prev = ActionNode;
+    system("cls");
+    return i;
 }
 
-Stu* CreateNode() //åˆ›å»ºèŠ‚ç‚¹
+void DeleteNode(int i) //¶Ô½á¹û½øĞĞÅĞ¶Ï²¢É¾³ı
 {
+    char chose;
+    int temp;
+    if (i == 0) {
+        printf("²éÑ¯½á¹ûÎª¿Õ£¡");
+        sleep(2);
+    } else {
+        do {
+            system("cls");
+            printf("²éÑ¯½á¹û£º\n");
+            printf("%2s%20s\t%20s\t%3s\t%s\t%s\t%s\t%s\t%s\n", "±àºÅ", "Ñ§ºÅ", "ĞÕÃû", "ĞÔ±ğ", "ÄêÁä", "ÓïÎÄ", "ÊıÑ§", "CÓïÑÔ", "×Ü");
+            for (int j = 0; j < i && j < 10; j++) {
+                printf("%02d%20s\t%20s\t%3s\t%02d\t%02d\t%02d\t%02d\t%d\n", j + 1, ResultTemp[j]->id, ResultTemp[j]->name, ResultTemp[j]->isMale ? "ÄĞ" : "Å®", ResultTemp[j]->age, ResultTemp[j]->Chinese, ResultTemp[j]->Math, ResultTemp[j]->C, ResultTemp[j]->Sum);
+            }
+
+            printf("ÇëÊäÈëÒªÉ¾³ıµÄ±àºÅ£º\n");
+            scanf("%d", &temp);
+            //É¾³ı½Úµã
+            if (ResultTemp[temp - 1]->prev != NULL) {
+                ResultTemp[temp - 1]->prev->next = ResultTemp[temp - 1]->next;
+            }
+            if (ResultTemp[temp - 1]->next != NULL) {
+                ResultTemp[temp - 1]->next->prev = ResultTemp[temp - 1]->prev;
+            }
+            //ÊÍ·Å¿Õ¼ä
+            free(ResultTemp[temp - 1]);
+            //Ñ­»·µ÷ÓÃ
+            printf("ÊÇ·ñ¼ÌĞøÉ¾³ı(y/n)£º\n");
+            //Çå³ıStdIn
+            fflush(stdin);
+            scanf("%c", &chose);
+        } while (chose == 'Y' || chose == 'y');
+    }
+}
+
+void ChangeInfo(int i) //¶Ô½á¹û½øĞĞĞŞ¸Ä
+{
+    char chose;
+    int temp, temp2, temp3;
+    if (i == 0) {
+        printf("²éÑ¯½á¹ûÎª¿Õ£¡");
+        sleep(2);
+    } else {
+        do {
+            system("cls");
+            printf("²éÑ¯½á¹û£º\n");
+            printf("%2s%20s\t%20s\t%3s\t%s\t%s\t%s\t%s\t%s\n", "±àºÅ", "Ñ§ºÅ", "ĞÕÃû", "ĞÔ±ğ", "ÄêÁä", "ÓïÎÄ", "ÊıÑ§", "CÓïÑÔ", "×Ü");
+            for (int j = 0; j < i && j < 10; j++) {
+                printf("%02d%20s\t%20s\t%3s\t%02d\t%02d\t%02d\t%02d\t%d\n", j + 1, ResultTemp[j]->id, ResultTemp[j]->name, ResultTemp[j]->isMale ? "ÄĞ" : "Å®", ResultTemp[j]->age, ResultTemp[j]->Chinese, ResultTemp[j]->Math, ResultTemp[j]->C, ResultTemp[j]->Sum);
+            }
+            printf("ÇëÊäÈëÒªĞŞ¸ÄµÄ±àºÅ£º\n");
+            scanf("%d", &temp);
+            system("cls");
+            printf("ÏÖÖµ£º\nÑ§ºÅ£º%s\nĞÕÃû£º%s\n%d¡¢ĞÔ±ğ£º%s\n%d¡¢ÄêÁä£º%d\n%d¡¢ÓïÎÄ£º%d\n%d¡¢ÊıÑ§£º%d\n%d¡¢CÓïÑÔ£º%d\n", ResultTemp[temp - 1]->id, ResultTemp[temp - 1]->name, 1, ResultTemp[temp - 1]->isMale ? "ÄĞ" : "Å®", 2, ResultTemp[temp - 1]->age, 3, ResultTemp[temp - 1]->Chinese, 4, ResultTemp[temp - 1]->Math, 5, ResultTemp[temp - 1]->C);
+            printf("ÇëÊäÈëÒªĞŞ¸ÄµÄ±àºÅ£º\n");
+            scanf("%d", &temp2);
+            printf("ÇëÊäÈëÒªĞŞ¸ÄµÄÖµ£º\n");
+            scanf("%d", &temp3);
+            switch (temp2) {
+            case 1:
+                if (temp3 != 0 && temp3 != 1) {
+                    break;
+                }
+                ResultTemp[temp - 1]->isMale = temp3;
+                break;
+            case 2:
+                if (temp3 >= 100 || temp3 <= 0) {
+                    break;
+                }
+                ResultTemp[temp - 1]->age = temp3;
+                break;
+            case 3:
+                if (temp3 >= 100 || temp3 <= 0) {
+                    break;
+                }
+                ResultTemp[temp - 1]->Chinese = temp3;
+                break;
+            case 4:
+                if (temp3 >= 100 || temp3 <= 0) {
+                    break;
+                }
+                ResultTemp[temp - 1]->Math = temp3;
+                break;
+            case 5:
+                if (temp3 >= 100 || temp3 <= 0) {
+                    break;
+                }
+                ResultTemp[temp - 1]->C = temp3;
+                break;
+
+            default:
+                break;
+            }
+            ResultTemp[temp - 1]->Sum = ResultTemp[temp - 1]->C + ResultTemp[temp - 1]->Chinese + ResultTemp[temp - 1]->Math;
+            printf("ĞŞ¸Äºó£º\nÑ§ºÅ£º%s\nĞÕÃû£º%s\n%d¡¢ĞÔ±ğ£º%s\n%d¡¢ÄêÁä£º%d\n%d¡¢ÓïÎÄ£º%d\n%d¡¢ÊıÑ§£º%d\n%d¡¢CÓïÑÔ£º%d\n", ResultTemp[temp - 1]->id, ResultTemp[temp - 1]->name, 1, ResultTemp[temp - 1]->isMale ? "ÄĞ" : "Å®", 2, ResultTemp[temp - 1]->age, 3, ResultTemp[temp - 1]->Chinese, 4, ResultTemp[temp - 1]->Math, 5, ResultTemp[temp - 1]->C);
+            printf("ÊÇ·ñ¼ÌĞøĞŞ¸Ä(y/n)£º\n");
+            fflush(stdin);
+            scanf("%c", &chose);
+        } while (chose == 'Y' || chose == 'y');
+    }
+}
+
+Stu* SortInfo(Stu* FatherNode) //ÅÅĞò
+{
+    int temp, n = 1, flag, temp1, temp2;
+    Stu *TempNode = FatherNode, *TempNode2 = FatherNode, *ActionNode = FatherNode, *MoveNode;
+    while (TempNode->next != NULL) {
+        TempNode = TempNode->next;
+        n++;
+    }
+    printf("===============================================\n");
+    printf(" ÇëÊäÈëÒªÅÅĞòµÄÊı¾İÑ¡Ïî                          \n");
+    printf("  1¡¢Ñ§ºÅ                                      \n");
+    printf("  2¡¢ÓïÎÄ                                       \n");
+    printf("  3¡¢ÊıÑ§                                       \n");
+    printf("  4¡¢CÓïÑÔ                                      \n");
+    printf("  5¡¢×Ü³É¼¨                                     \n");
+    printf("  ÇëÊäÈëĞèÒª¹¦ÄÜµÄ±àºÅ£¬Ö±½Ó¹Ø±ÕÏµÍ³¿ÉÄÜËğ»µÊı¾İ   \n");
+    printf("===============================================\n");
+    scanf("%d", &temp1);
+    printf("===============================================\n");
+    printf("  0¡¢ÉıĞò                                       \n");
+    printf("  1¡¢½µĞò                                       \n");
+    printf("  ÇëÊäÈëĞèÒª¹¦ÄÜµÄ±àºÅ£¬Ö±½Ó¹Ø±ÕÏµÍ³¿ÉÄÜËğ»µÊı¾İ   \n");
+    printf("===============================================\n");
+    scanf("%d", &temp2);
+    /* ÕÒµ½¼«Öµ */
+    TempNode = FatherNode;
+    TempNode2 = FatherNode;
+    while (TempNode2->next != NULL) {
+        if (CompareTo(TempNode, TempNode2->next, temp1, temp2) < 0) {
+            TempNode = TempNode2->next;
+        }
+        TempNode2 = TempNode2->next;
+    }
+    /* ¼«Öµ¶ÏÁÑ */
+    if (TempNode->next != NULL) {
+        TempNode2 = TempNode->next;
+    } else {
+        TempNode2 = TempNode->prev;
+    }
+    if (TempNode->next != NULL) {
+        TempNode->next->prev = TempNode->prev;
+    }
+    if (TempNode->prev != NULL) {
+        TempNode->prev->next = TempNode->next;
+    }
+    TempNode->next = NULL;
+    TempNode->prev = NULL;
+    while (TempNode2->prev != NULL) {
+        TempNode2 = TempNode2->prev;
+    }
+    /* ¸ü¸ÄË³Ğò */
+    while (TempNode2->next != NULL) {
+        ActionNode = TempNode2;
+        TempNode2 = TempNode2->next;
+        MoveNode = TempNode;
+        while (1) {
+            if (CompareTo(MoveNode, ActionNode, temp1, temp2) > 0) {
+                if (MoveNode->next == NULL || CompareTo(MoveNode->next, ActionNode, temp1, temp2) < 0) {
+                    break;
+                } else {
+                    MoveNode = MoveNode->next;
+                }
+            } else {
+                break;
+            }
+        }
+        InsertNode(MoveNode, ActionNode);
+    }
+    system("cls");
+    Print(TempNode);
+    return TempNode;
+}
+
+int CompareTo(Stu* Node1, Stu* Node2, int flag1, int flag2) //½Úµã±È½Ï
+{
+    if (Node1 == NULL) {
+        return flag2 ? -1 : 1;
+    } else if (Node2 == NULL) {
+        return flag2 ? 1 : -1;
+    }
+    switch (flag1) {
+    case 1:
+        if (strlen(Node1->id) != strlen(Node2->id)) {
+            return flag2 ? strlen(Node1->id) - strlen(Node2->id) : strlen(Node2->id) - strlen(Node1->id);
+        } else {
+            return flag2 ? strcmp(Node1->id, Node2->id) : strcmp(Node2->id, Node1->id);
+        }
+        break;
+    case 2:
+        return flag2 ? Node1->Chinese - Node2->Chinese : Node2->Chinese - Node1->Chinese;
+        break;
+    case 3:
+        return flag2 ? Node1->Math - Node2->Math : Node2->Math - Node1->Math;
+        break;
+    case 4:
+        return flag2 ? Node1->C - Node2->C : Node2->C - Node1->C;
+        break;
+    case 5:
+        return flag2 ? Node1->Sum - Node2->Sum : Node2->Sum - Node1->Sum;
+        break;
+
+    default:
+        system("color F4");
+        printf("\n\n\tÇëÊäÈëÕıÈ·µÄĞòºÅ\n");
+        sleep(2);
+        system("color 0E");
+        break;
+    }
+}
+
+Stu* InsertNode(Stu* FatherNode, Stu* NewNode) //²åÈë½Úµã
+{
+    if (FatherNode->next != NULL) {
+        FatherNode->next->prev = NewNode;
+    }
+
+    NewNode->prev = FatherNode;
+    if (FatherNode != NULL) {
+        NewNode->next = FatherNode->next;
+        FatherNode->next = NewNode;
+    }
+}
+
+Stu* CreateNode() //´´½¨½Úµã
+{
+    tempNode.Sum = tempNode.Chinese + tempNode.Math + tempNode.C;
     Stu* NewNode = (Stu*)malloc(sizeof(Stu));
     strcpy(NewNode->id, tempNode.id);
     strcpy(NewNode->name, tempNode.name);
@@ -176,13 +374,66 @@ Stu* CreateNode() //åˆ›å»ºèŠ‚ç‚¹
     return NewNode;
 }
 
-void WriteFile(Stu* FatherNode) //å†™æ–‡ä»¶
+Stu* ReadInfoFromFile() //´ÓÎÄ¼şÖĞ¶ÁÈ¡ĞÅÏ¢
 {
-    Stu* ActionNode = FatherNode;
-    //å®šä¹‰
+    //¶¨Òå
     char ABS[1001];
     FILE* File = NULL;
-    //æ‰“å¼€æ–‡ä»¶
+    //´ò¿ªÎÄ¼ş
+    getcwd(ABS, 1000);
+    File = fopen(strcat(ABS, "\\Information"), "r");
+    fscanf(File, "%s%s%d%d%d%d%d%d", &tempNode.id, &tempNode.name, &tempNode.isMale, &tempNode.age, &tempNode.Chinese, &tempNode.Math, &tempNode.C, &tempNode.Sum);
+    //¶¨Òå¸¸½Úµã
+    Stu* FatherNode = CreateNode();
+    while (fscanf(File, "%s%s%d%d%d%d%d%d", &tempNode.id, &tempNode.name, &tempNode.isMale, &tempNode.age, &tempNode.Chinese, &tempNode.Math, &tempNode.C, &tempNode.Sum) != EOF) {
+        InsertNode(FatherNode, CreateNode());
+    }
+    return FatherNode;
+}
+
+void AddNewInfo(Stu* FatherNode) //´ÓÆÁÄ»»ñÈ¡Êı¾İ
+{
+    Stu* ActionNode = FatherNode;
+    fflush(stdin);
+    printf("ÇëÊäÈëÑ§ºÅ£¨20¸öÊı×ÖÄÚ£©£º\n");
+    scanf("%s", &tempNode.id);
+    while (ActionNode->next != NULL) {
+        if (ActionNode->id == tempNode.id) {
+            system("color F4");
+            printf("\n\n\tÇëÊäÈë²»ÖØ¸´µÄÑ§ºÅ\n");
+            sleep(2);
+            system("color 0E");
+            return;
+        } else {
+            ActionNode = ActionNode->next;
+        }
+    }
+    printf("ÇëÊäÈëĞÕÃû£¨20×ÖÄÚ£©£º\n");
+    scanf("%s", &tempNode.name);
+    printf("ÇëÊäÈëĞÔ±ğ£¨ÄĞÎª1£¬Å®Îª0£©£º\n");
+    scanf("%d", &tempNode.isMale);
+    printf("ÇëÊäÈëÄêÁä£º\n");
+    scanf("%d", &tempNode.age);
+    printf("ÇëÊäÈëÓïÎÄ³É¼¨£¨<100£©£º\n");
+    scanf("%d", &tempNode.Chinese);
+    printf("ÇëÊäÈëÊıÑ§³É¼¨£¨<100£©£º\n");
+    scanf("%d", &tempNode.Math);
+    printf("ÇëÊäÈëCÓïÑÔ³É¼¨£¨<100£©£º\n");
+    scanf("%d", &tempNode.C);
+    if (tempNode.age >= 0 && tempNode.C <= 100 && tempNode.C >= 100 && tempNode.Chinese <= 100 && tempNode.Chinese >= 100 && tempNode.Math <= 100 && tempNode.Math >= 100 && (tempNode.isMale == 0 || tempNode.isMale == 1) && strlen(tempNode.name) > 0 && strlen(tempNode.id) > 0) {
+        printf("ÊäÈëÓĞÎó£¬ÇëÖØĞÂÊäÈë");
+    } else {
+        InsertNode(FatherNode, CreateNode());
+    }
+}
+
+void WriteFile(Stu* FatherNode) //Ğ´ÎÄ¼ş
+{
+    Stu* ActionNode = FatherNode;
+    //¶¨Òå
+    char ABS[1001];
+    FILE* File = NULL;
+    //´ò¿ªÎÄ¼ş
     getcwd(ABS, 1000);
     File = fopen(strcat(ABS, "\\Information"), "w+");
     while (fprintf(File, "%s %s %d %d %d %d %d %d\n", ActionNode->id, ActionNode->name, ActionNode->isMale, ActionNode->age, ActionNode->Chinese, ActionNode->Math, ActionNode->C, ActionNode->Sum)) {
@@ -191,5 +442,33 @@ void WriteFile(Stu* FatherNode) //å†™æ–‡ä»¶
         } else {
             break;
         }
+    }
+}
+
+void Print(Stu* FatherNode) //Êä³öÊı¾İ
+{
+    Stu* ActionNode = FatherNode;
+    printf("%20s\t%20s\t%3s\t%s\t%s\t%s\t%s\t%s\n", "Ñ§ºÅ", "ĞÕÃû", "ĞÔ±ğ", "ÄêÁä", "ÓïÎÄ", "ÊıÑ§", "CÓïÑÔ", "×Ü");
+    while (ActionNode != NULL) {
+        printf("%20s\t%20s\t%3s\t%02d\t%02d\t%02d\t%02d\t%d\n", ActionNode->id, ActionNode->name, ActionNode->isMale ? "ÄĞ" : "Å®", ActionNode->age, ActionNode->Chinese, ActionNode->Math, ActionNode->C, ActionNode->Sum);
+        ActionNode = ActionNode->next;
+    }
+    fflush(stdin);
+    int a = getchar();
+}
+
+void PrintResult(int i) //´òÓ¡½á¹û
+{
+    if (i == 0) {
+        printf("²éÑ¯½á¹ûÎª¿Õ£¡");
+        sleep(2);
+    } else {
+        printf("²éÑ¯½á¹û£º\n");
+        printf("%20s\t%20s\t%3s\t%s\t%s\t%s\t%s\t%s\n", "Ñ§ºÅ", "ĞÕÃû", "ĞÔ±ğ", "ÄêÁä", "ÓïÎÄ", "ÊıÑ§", "CÓïÑÔ", "×Ü");
+        for (int j = 0; j < i; j++) {
+            printf("%20s\t%20s\t%3s\t%02d\t%02d\t%02d\t%02d\t%d\n", ResultTemp[j]->id, ResultTemp[j]->name, ResultTemp[j]->isMale ? "ÄĞ" : "Å®", ResultTemp[j]->age, ResultTemp[j]->Chinese, ResultTemp[j]->Math, ResultTemp[j]->C, ResultTemp[j]->Sum);
+        }
+        fflush(stdin);
+        int a = getchar();
     }
 }
